@@ -1,9 +1,5 @@
-var fortunes = [
-"Conquer your fears or they will conquer you.", "Rivers need springs.",
-"Do not fear what you don't know.",
-"You will have a pleasant surprise.",
-"Whenever possible, keep it simple.",
-];
+//./这是告诉 Node,它不应该到 node_modules 目录中查找这个模块
+var fortune = require('./lib/fortune.js');
 
 var express = require('express');
 var app = express();
@@ -28,10 +24,11 @@ app.get('/',function(req,res){
 //app.get是Express添加路由的方法
 app.get('/about',function(req,res){
   //about可以使用通配符about*
-  var randomFortune =
-    fortunes[Math.floor(Math.random() * fortunes.length)];//Math.floor(x)，x向下取整
-  res.render('about', { fortune: randomFortune });
+  // var randomFortune =
+  //   fortunes[Math.floor(Math.random() * fortunes.length)];//Math.floor(x)，x向下取整
+  res.render('about', { fortune: fortune.getFortune()});
 });
+
 //定制404,catch-all 处理器（中间件）
 app.use(function(req,res,next){
   res.status(404);
