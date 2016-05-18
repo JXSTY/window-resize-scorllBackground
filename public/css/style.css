@@ -1,5 +1,13 @@
 body{margin: 0;padding: 0;}
 body .level{text-align:center; color: #fff;padding: 20px 0px;}
 body .level:nth-child(1){background-color:#222; height: 768px;}
-body .level:nth-child(2){ height: 300px;background-size:cover;background-image:url(../img/wall.jpg);background-position-y: 0px;}
+body .level:nth-child(2){
+  height: 300px;
+  background-image:url(../img/wall.jpg);
+  background-position-y: 0px;
+  /*background-attachment: fixed;*/
+  background-position: center;
+  background-repeat: no-repeat;
+}
 body .level:nth-child(3){background-color:#888; height: 450px;}
+body .level:nth-child(4){background-color:#888; height: 450px;}
